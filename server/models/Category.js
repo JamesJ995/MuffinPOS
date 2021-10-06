@@ -6,8 +6,13 @@ const categorySchema = new Schema({
   name: {
     type: String,
     required: true,
-    trim: true
-  }
+    trim: true,
+  },
+  addOns: [
+    {
+      type: String,
+    },
+  ],
 });
 
 const Category = mongoose.model('Category', categorySchema);
