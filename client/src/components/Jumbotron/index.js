@@ -7,6 +7,7 @@ function Jumbotron({ children }) {
     >
       {children}
     </div>
+   
   );
 }
 
