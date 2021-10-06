@@ -18,7 +18,7 @@ db.once('open', async () => {
     // },
     { name: 'Donuts' },
     { name: 'Coffee', addOns: ['Cream', 'Sugar'] },
-    // { name: 'Kolaches' },
+    { name: 'Kolaches' },
     // { name: 'Tacos', addOns: ['Mild Salsa', 'Medium Salsa', 'Fire Salsa'] },
   ]);
 
