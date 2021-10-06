@@ -27,8 +27,8 @@ function MainNav() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link to="/signup">Signup</Nav.Link>
-              <Nav.Link to="/login">
+              <Nav.Link href="/signup">Signup</Nav.Link>
+              <Nav.Link href="/login">
               Login</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -41,7 +41,7 @@ function MainNav() {
   return (
     <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand to="/">TOAST POS</Navbar.Brand>
+            <Navbar.Brand href="/">TOAST POS</Navbar.Brand>
             {showNavigation()}
             </Container>
     </Navbar>
