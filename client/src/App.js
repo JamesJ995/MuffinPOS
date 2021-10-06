@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {
   ApolloClient,
@@ -40,6 +41,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+     
       <Router>
         <div>
           <StoreProvider>
@@ -56,6 +58,7 @@ function App() {
           </StoreProvider>
         </div>
       </Router>
+     
     </ApolloProvider>
   );
 }
