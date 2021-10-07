@@ -54,7 +54,7 @@ db.once('open', async () => {
     {
       name: 'Plain Donut',
       description: 'A plain donut',
-      image: 'https://picsum.photos/200/200',
+      image: 'plain-donut.jpg',
       category: categories[0]._id,
       price: 1.0,
       quantity: 500,
@@ -86,7 +86,7 @@ db.once('open', async () => {
     {
       name: 'Coffee',
       description: "God's second greatest gift to humainty",
-      image: 'https://picsum.photos/200/200',
+      image: 'coffee.jpg',
       category: categories[1]._id,
       price: 1.5,
       quantity: 500,

@@ -5,7 +5,9 @@ import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import spinner from '../../assets/spinner.gif';
+// import spinner from '../../assets/spinner.gif';
+import Spinner from 'react-bootstrap/Spinner';
+import Cart from '../Cart';
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
@@ -58,12 +60,16 @@ function ProductList() {
               quantity={product.quantity}
             />
           ))}
+          
         </div>
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? <Spinner animation="border" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                  </Spinner> : null}
     </div>
+    
   );
 }
 
