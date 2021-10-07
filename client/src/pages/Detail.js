@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
@@ -83,30 +86,38 @@ function Detail() {
 
   return (
     <>
-      {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
-
-          <h2>{currentProduct.name}</h2>
+    {currentProduct && cart ? (
+    <Container>
+    <Row>
+    <Col className="p-5"><Link className="btn btn-primary" to="/">← Back to Products</Link></Col>
+    </Row>
+  <Row>
+    <Col><img className="rounded shadow"
+            src={`/images/${currentProduct.image}`}
+            alt={currentProduct.name}
+          /></Col>
+    <Col>
+    <h2>{currentProduct.name}</h2>
 
           <p>{currentProduct.description}</p>
 
           <p>
             <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
+            
+          </p>
+          <p>
+          <button className="btn btn-success" onClick={addToCart}>Add to Cart</button> &nbsp;
+            <button className="btn btn-danger"
               disabled={!cart.find((p) => p._id === currentProduct._id)}
               onClick={removeFromCart}
             >
               Remove from Cart
             </button>
           </p>
-
-          <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          />
-        </div>
+    </Col>
+  </Row>
+  </Container>
+      
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
