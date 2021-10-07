@@ -44,9 +44,9 @@ function ProductItem(item) {
 
   return (
     
-    <Card className="col-4 mb-2">
+    <Card className="col-4 mb-2 border-0">
        <Link to={`/products/${_id}`}>
-      <Card.Img variant="top"  alt={name} src={`/images/${image}`} />
+      <Card.Img variant="top" className="rounded-pill p-2" alt={name} src={`/images/${image}`} />
       </Link>
       <Card.Body>
         <Card.Title>{name}</Card.Title>
@@ -54,13 +54,9 @@ function ProductItem(item) {
         {quantity} {pluralize("item", quantity)} in stock
         </Card.Text>
       </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroupItem>Cras justo odio</ListGroupItem>
-        <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-        <ListGroupItem>Vestibulum at eros</ListGroupItem>
-      </ListGroup>
+     
       <Card.Body>
-      <button onClick={addToCart}>Add to cart</button>
+      <button className="btn btn-warning" onClick={addToCart}>Add to cart</button>
       </Card.Body>
     </Card>
   );

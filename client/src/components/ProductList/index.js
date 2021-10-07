@@ -7,6 +7,7 @@ import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 // import spinner from '../../assets/spinner.gif';
 import Spinner from 'react-bootstrap/Spinner';
+import Cart from '../Cart';
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
@@ -59,14 +60,16 @@ function ProductList() {
               quantity={product.quantity}
             />
           ))}
+          
         </div>
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
       {loading ? <Spinner animation="border" role="status">
-  <span className="visually-hidden">Loading...</span>
-</Spinner> : null}
+                      <span className="visually-hidden">Loading...</span>
+                  </Spinner> : null}
     </div>
+    
   );
 }
 
