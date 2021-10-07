@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
@@ -35,13 +36,14 @@ function Login(props) {
 
   return (
     <Container>
-      <Row className="justify-content-md-center">
-         <Col>
+      <Row>
+      <Col className="col py-4 md-offset-4 ">
       
-
+<Card className="col-12 col-md-6 mx-auto">
+<Card.Body>
       <h2>Login</h2>
   
-      <Form onSubmit={handleFormSubmit}>
+<Form onSubmit={handleFormSubmit} className="w-100">
   <Form.Group className="mb-3">
     <Form.Label>Email address</Form.Label>
     <Form.Control type="email" className="form-control" placeholder="Enter email" name="email"
@@ -72,6 +74,8 @@ function Login(props) {
     Submit
   </Button> <i>do you need to signup?</i> <Link to="/signup" className="small">Signup Here</Link>
 </Form>
+</Card.Body>
+</Card>
     </Col>
 </Row>
 </Container>
