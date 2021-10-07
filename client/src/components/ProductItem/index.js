@@ -4,6 +4,9 @@ import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+import ListGroupItem from "react-bootstrap/ListGroupItem";
 
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
@@ -40,20 +43,26 @@ function ProductItem(item) {
   }
 
   return (
-    <div className="card px-1 py-1">
-      <Link to={`/products/${_id}`}>
-        <img
-          alt={name}
-          src={`/images/${image}`}
-        />
-        <p>{name}</p>
+    
+    <Card className="col-4 mb-2">
+       <Link to={`/products/${_id}`}>
+      <Card.Img variant="top"  alt={name} src={`/images/${image}`} />
       </Link>
-      <div>
-        <div>{quantity} {pluralize("item", quantity)} in stock</div>
-        <span>${price}</span>
-      </div>
+      <Card.Body>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>
+        {quantity} {pluralize("item", quantity)} in stock
+        </Card.Text>
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroupItem>Cras justo odio</ListGroupItem>
+        <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
+        <ListGroupItem>Vestibulum at eros</ListGroupItem>
+      </ListGroup>
+      <Card.Body>
       <button onClick={addToCart}>Add to cart</button>
-    </div>
+      </Card.Body>
+    </Card>
   );
 }
 

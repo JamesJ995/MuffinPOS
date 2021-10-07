@@ -7,7 +7,7 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-
+import Nav from 'react-bootstrap/Nav'
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
 
@@ -42,20 +42,23 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
-      <h2>Choose a Category:</h2>
-      {categories.map((item) => (
-        <button
-          key={item._id}
+<div>
+    <h2 className="mt-4">Choose a Category:</h2>
+    <Nav justify variant="tabs" defaultActiveKey="/home">
+    {categories.map((item) => (
+      <Nav.Item>
+        <Nav.Link  key={item._id}
           onClick={() => {
             handleClick(item._id);
-          }}
-        >
-          {item.name}
-        </button>
+          }}> {item.name}</Nav.Link>
+      </Nav.Item>
       ))}
-    </div>
+    </Nav>
+  </div>
+
+    
   );
 }
 
 export default CategoryMenu;
+
