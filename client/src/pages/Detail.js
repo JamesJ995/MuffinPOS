@@ -3,8 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-//import Cart from '../components/Cart';
+import Row from 'react-bootstrap/Row'
 import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_CART,
@@ -130,7 +129,6 @@ function Detail() {
           </Container>
         ) : null}
         {loading ? <img src={spinner} alt="loading" /> : null}
-        <Cart />
       </>
     );
   } else {
