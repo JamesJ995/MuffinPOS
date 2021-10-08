@@ -46,6 +46,12 @@ function ProductList() {
   }
 
   return (
+    <div>
+    <div className="row justify-content-between">
+    <div className="col-12 col-md-4">
+      <Cart />
+    </div>
+    <div className="col-12 col-md-8">
     <div className="my-2">
       <h2>Our Products:</h2>
       {state.products.length ? (
@@ -62,14 +68,19 @@ function ProductList() {
           ))}
           
         </div>
+        
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
       {loading ? <Spinner animation="border" role="status">
                       <span className="visually-hidden">Loading...</span>
                   </Spinner> : null}
+
     </div>
+    </div>
+  </div>
     
+    </div>
   );
 }
 
