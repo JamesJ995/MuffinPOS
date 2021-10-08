@@ -28,6 +28,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
+    employeeID: Int
     orders: [Order]
   }
 
@@ -55,6 +56,7 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       password: String!
+      employeeID: String!
     ): Auth
     addOrder(products: [ID]!): Order
     updateUser(
@@ -62,9 +64,10 @@ const typeDefs = gql`
       lastName: String
       email: String
       password: String
+      employeeID: String
     ): User
     updateProduct(_id: ID!, quantity: Int!): Product
-    login(email: String!, password: String!): Auth
+    login(employeeID: String!, password: String!): Auth
   }
 `;
 
