@@ -11,14 +11,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function Login(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ employeeID: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
       const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
+        variables: { employeeID: formState.employeeID, password: formState.password },
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
@@ -48,12 +48,11 @@ function Login(props) {
                 <Form.Group className="mb-3">
                   <Form.Label>Employee ID #</Form.Label>
                   <Form.Control
-                    type="email"
+                    type="employeeID"
                     className="form-control"
                     placeholder="Enter ID"
-                    name="email"
-                    type="email"
-                    id="email"
+                    name="employeeID"
+                    id="employeeID"
                     onChange={handleChange}
                   />
                 </Form.Group>
