@@ -25,6 +25,11 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  employeeID: {
+    type: Number,
+    required: true,
+    unique: true
+  },
   orders: [Order.schema]
 });
 

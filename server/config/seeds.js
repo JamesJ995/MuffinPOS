@@ -142,6 +142,7 @@ db.once('open', async () => {
     lastName: 'Vilchis',
     email: 'javier@vilchis.com',
     password: 'password12345',
+    employeeID: '001'
   });
 
   await User.create({
@@ -149,6 +150,7 @@ db.once('open', async () => {
     lastName: 'Johnson',
     email: 'james@johnson.com',
     password: 'password12345',
+    employeeID: '002'
   });
 
   await User.create({
@@ -156,6 +158,7 @@ db.once('open', async () => {
     lastName: 'Hare',
     email: 'robby@hare.com',
     password: 'password12345',
+    employeeID: '003'
   });
 
   await User.create({
@@ -163,6 +166,7 @@ db.once('open', async () => {
     lastName: 'Williams',
     email: 'jeremy@williams.com',
     password: 'password12345',
+    employeeID: '004'
   });
 
   console.log('users seeded');
