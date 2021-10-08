@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Cart from '../components/Cart';
+//import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_CART,
@@ -109,7 +109,6 @@ function Detail() {
                 <h2>{currentProduct.name}</h2>
 
                 <p>{currentProduct.description}</p>
-
                 <p>
                   <strong>Price:</strong>${currentProduct.price}{' '}
                 </p>
