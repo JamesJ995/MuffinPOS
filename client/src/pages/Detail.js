@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 //import Cart from '../components/Cart';
 import { useStoreContext } from '../utils/GlobalState';
 import {
@@ -16,6 +15,8 @@ import {
 import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
+import Auth from '../utils/auth';
+import { Redirect } from 'react-router-dom';
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -84,45 +85,57 @@ function Detail() {
     idbPromise('cart', 'delete', { ...currentProduct });
   };
 
-  return (
-    <>
-    {currentProduct && cart ? (
-    <Container>
-    <Row>
-    <Col className="p-5"><Link className="btn btn-primary" to="/">← Back to Products</Link></Col>
-    </Row>
-  <Row>
-    <Col><img className="rounded shadow"
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.name}
-          /></Col>
-    <Col>
-    <h2>{currentProduct.name}</h2>
+  if (Auth.loggedIn()) {
+    return (
+      <>
+        {currentProduct && cart ? (
+          <Container>
+            <Row>
+              <Col className="p-5">
+                <Link className="btn btn-primary" to="/">
+                  ← Back to Products
+                </Link>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <img
+                  className="rounded shadow"
+                  src={`/images/${currentProduct.image}`}
+                  alt={currentProduct.name}
+                />
+              </Col>
+              <Col>
+                <h2>{currentProduct.name}</h2>
 
-          <p>{currentProduct.description}</p>
-
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            
-          </p>
-          <p>
-          <button className="btn btn-success" onClick={addToCart}>Add to Cart</button> &nbsp;
-            <button className="btn btn-danger"
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
-    </Col>
-  </Row>
-  </Container>
-      
-      ) : null}
-      {loading ? <img src={spinner} alt="loading" /> : null}
-    
-    </>
-  );
+                <p>{currentProduct.description}</p>
+                <p>
+                  <strong>Price:</strong>${currentProduct.price}{' '}
+                </p>
+                <p>
+                  <button className="btn btn-success" onClick={addToCart}>
+                    Add to Cart
+                  </button>{' '}
+                  &nbsp;
+                  <button
+                    className="btn btn-danger"
+                    disabled={!cart.find((p) => p._id === currentProduct._id)}
+                    onClick={removeFromCart}
+                  >
+                    Remove from Cart
+                  </button>
+                </p>
+              </Col>
+            </Row>
+          </Container>
+        ) : null}
+        {loading ? <img src={spinner} alt="loading" /> : null}
+        <Cart />
+      </>
+    );
+  } else {
+    return <Redirect to="/login" />;
+  }
 }
 
 export default Detail;
