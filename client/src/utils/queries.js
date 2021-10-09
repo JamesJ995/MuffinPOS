@@ -68,3 +68,12 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_OPTIONS = gql`
+  {
+    option {
+      _id
+      name
+    }
+  }
+`;
