@@ -4,13 +4,18 @@ import Auth from "../../utils/auth";
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import metadata from './../../metadata.json';
+
+const style = {
+  position: "fixed"
+}
 
 function MainNav() {
 
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg" style={style.postion}>
           <Container>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -38,7 +43,7 @@ function MainNav() {
   return (
     <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand href="/">TOAST POS</Navbar.Brand>
+            <Navbar.Brand href="/">TOAST POS | <small className="muted font-weight-light"><em>{`Version ${metadata.buildMajor}.${metadata.buildMinor}.${metadata.buildRevision}`}</em></small></Navbar.Brand>
             {showNavigation()}
             </Container>
     </Navbar>

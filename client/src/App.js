@@ -45,7 +45,7 @@ function App() {
       <Router>
         <div>
           <StoreProvider>
-            <MainNav />
+            {/* <MainNav /> */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
