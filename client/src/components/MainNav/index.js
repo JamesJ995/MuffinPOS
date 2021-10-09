@@ -7,7 +7,16 @@ import Nav from 'react-bootstrap/Nav';
 import metadata from './../../metadata.json';
 
 const style = {
-  position: "fixed"
+  sticky: {
+    top:0,
+    padding: "10px 0px 10px 20px",
+    position:"fixed",
+    width: "100%",
+    zIndex: 33
+  },
+  logo: {
+    zIndex: 33
+  }
 }
 
 function MainNav() {
@@ -15,39 +24,31 @@ function MainNav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <Navbar bg="light" expand="lg" style={style.postion}>
-          <Container>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link href="/orderHistory">Order History</Nav.Link>
-                <Nav.Link href="/" onClick={() => Auth.logout()}>Logout</Nav.Link>
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+        <Nav className="me-auto align-items-end">
+          <Nav.Link href="/orderHistory">Order History</Nav.Link>
+          <Nav.Link href="/" onClick={() => Auth.logout()}>Logout</Nav.Link>
+        </Nav>
       );
     } else {
       return (
-        <Navbar bg="light" expand="lg">
-        <Container>
+        <Navbar bg="light" expand="lg" flex="d-flex">
+       
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
           </Navbar.Collapse>
-        </Container>
-      </Navbar>
+       
+        </Navbar>
       );
     }
   }
 
   return (
-    <Navbar bg="light" expand="lg">
-          <Container>
+    <Navbar bg="light" expand="lg" style={style.sticky}>
+       
             <Navbar.Brand href="/">TOAST POS | <small className="muted font-weight-light"><em>{`Version ${metadata.buildMajor}.${metadata.buildMinor}.${metadata.buildRevision}`}</em></small></Navbar.Brand>
             {showNavigation()}
-            </Container>
+        
     </Navbar>
-    
   );
 }
 
