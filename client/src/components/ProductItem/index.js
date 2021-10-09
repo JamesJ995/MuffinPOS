@@ -44,7 +44,7 @@ function ProductItem(item) {
 
   return (
     
-    <Card className="col-4 mb-2 border-0">
+    <Card className="col-3 mb-2 border-0">
        <Link to={`/products/${_id}`}>
       <Card.Img variant="top" className="rounded-pill p-2" alt={name} src={`/images/${image}`} />
       </Link>

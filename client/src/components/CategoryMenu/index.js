@@ -41,12 +41,19 @@ function CategoryMenu() {
     });
   };
 
+  const style = {
+    tabs :{
+      background: "#f4f4f4",
+      fontSize: "1.2rem"
+    }
+  }
+
   return (
 <div>
-    <h2 className="mt-4">Choose a Category:</h2>
+    
     <Nav justify variant="tabs" defaultActiveKey="/home">
     {categories.map((item) => (
-      <Nav.Item>
+      <Nav.Item style={style.tabs}>
         <Nav.Link  key={item._id}
           onClick={() => {
             handleClick(item._id);

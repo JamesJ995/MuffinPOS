@@ -8,6 +8,7 @@ import { idbPromise } from '../../utils/helpers';
 // import spinner from '../../assets/spinner.gif';
 import Spinner from 'react-bootstrap/Spinner';
 import Cart from '../Cart';
+import CategoryMenu from '../CategoryMenu';
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
@@ -47,12 +48,14 @@ function ProductList() {
 
   return (
     <div>
-    <div className="row justify-content-between">
-    <div className="col-12 col-md-4">
+      
+    <div className="row d-flex">
+    <div className="col-12 col-md-3">
       <Cart />
     </div>
-    <div className="col-12 col-md-8">
+    <div className="col-12 col-md-9 p-0">
     <div className="my-2">
+    <CategoryMenu />
       <h2>Our Products:</h2>
       {state.products.length ? (
         <div className="flex-row">
