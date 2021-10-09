@@ -59,7 +59,30 @@ const Cart = () => {
       variables: { products: productIds },
     });
   }
-
+const style ={
+  sidebar :{
+    position: "fixed",
+    top: "51px",
+    bottom: 0,
+    left: 0,
+    zIndex: 1000,
+    display: "block",
+    padding: "20px",
+    overflowX: "hidden",
+    overflowY: "auto",
+    borderRight: "1px solid #eee",
+    width: "5rem"
+  },
+  total :{
+    fontSize:"2rem",
+    textAlign: "center",
+    color: "#888888"
+  },
+  order: {
+    color:"#333",
+    textAlign: "center"
+  }
+}
   // if (!state.cartOpen) {
   //   return (
   //     <div className="cart-closed" onClick={toggleCart}>
@@ -71,36 +94,49 @@ const Cart = () => {
   // }
 
   return (
-    <div className="cart">
-      <div className="close" onClick={toggleCart}>
-        [close]
-      </div>
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
-        <div>
+
+  <div className="col-12  px-sm-2 px-0 bg-light d-flex sticky-top min-vh-100">
+    
+    <div className="d-flex flex-sm-column w-100 align-items-center align-items-sm-start pt-2 text-white">
+       <h2 style={style.order} className="text-center">Your Order Summary</h2>
+        {state.cart.length ? (
+          <div className="w-100">
+          <ul class="list-group mb-3">
           {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
+             
+              <CartItem key={item._id} item={item} />
+           
           ))}
-
-          <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
-
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
-          </div>
+          </ul>
+            <div className="p-4 border-top" style={style.total}>
+              
+                  <strong>Total: ${calculateTotal()}</strong>
+            </div>
+        
+      
+            <div class="p-2 w-100 mt-auto align-self-end ">
+     
+                {Auth.loggedIn() ? (
+                  <button className="btn-warning btn-lg btn-block w-100 p-4" onClick={submitCheckout}>Proceed To Payment</button>
+                ) : (
+                  <div className="bg-danger p-4 text-center"><h2 className="text-white">(log in to check out)</h2></div>
+                )}
+            </div>
         </div>
+         
       ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
+        <div className="toast">
+          
+          <h2 style={style.order}>
+            You haven't added anything to your cart yet!
+          </h2>
+        </div>
+        
       )}
-    </div>
+            </div>
+        </div>
+
+ 
   );
 };
 

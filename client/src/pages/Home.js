@@ -8,11 +8,11 @@ import { Redirect } from 'react-router-dom';
 const Home = () => {
   if (true || Auth.loggedIn()) {
     return (
-      <div className="container">
-        <CategoryMenu />
+      <div>
+        {/* <CategoryMenu /> */}
         <ProductList />
         {/* <Cart /> */}
-      </div>
+     </div>
     );
   } else {
     return <Redirect to="/login" />;

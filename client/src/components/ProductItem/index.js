@@ -37,6 +37,7 @@ function ProductItem(item) {
   };
 
   return (
+
     <Card className="col-4 mb-2 border-0">
       <Link to={`/`}>
         <Card.Img
@@ -46,6 +47,7 @@ function ProductItem(item) {
           alt={name}
           src={`/images/${image}`}
         />
+
       </Link>
       <Card.Body>
         <Card.Title>{name}</Card.Title>
