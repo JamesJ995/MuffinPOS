@@ -41,6 +41,11 @@ const typeDefs = gql`
     user: User
   }
 
+  type Option {
+    _id: ID
+    name: STRING
+  }
+
   type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]

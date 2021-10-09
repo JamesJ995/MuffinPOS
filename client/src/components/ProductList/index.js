@@ -51,7 +51,7 @@ function ProductList() {
     <div>
       
     <div className="row d-flex">
-    <div className="col-12 col-md-3">
+    <div className="col-12 col-xl-3">
       <Cart />
     </div>
     <div className="col-12 col-md-9 p-0">

@@ -37,7 +37,6 @@ function ProductItem(item) {
   };
 
   return (
-
     <Card className="col-4 mb-2 border-0">
       <Link to={`/`}>
         <Card.Img
@@ -46,8 +45,14 @@ function ProductItem(item) {
           className="rounded-pill p-2"
           alt={name}
           src={`/images/${image}`}
+          width="100%"
+          height="225"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label={name}
+          preserveAspectRatio="xMidYMid slice"
+          focusable="false"
         />
-
       </Link>
       <Card.Body>
         <Card.Title>{name}</Card.Title>

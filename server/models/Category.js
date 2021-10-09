@@ -8,9 +8,10 @@ const categorySchema = new Schema({
     required: true,
     trim: true,
   },
-  addOns: [
+  options: [
     {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'Option',
     },
   ],
 });
