@@ -44,10 +44,14 @@ function CategoryMenu() {
   const style = {
     tabs :{
       background: "#f4f4f4",
-      fontSize: "1.2rem"
+      fontSize: "2rem",
+      color: "orange"
     },
     sticky: {
-      position:"fixed"
+      top: "3.7em",
+      position:"fixed",
+      width: "100%",
+      zIndex: 33
     }
   }
 

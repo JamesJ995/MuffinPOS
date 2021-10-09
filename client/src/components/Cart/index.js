@@ -95,7 +95,7 @@ const Cart = () => {
   // }
 
   return (
-    <div className="col-12  px-sm-2 px-0 bg-light d-flex sticky-top min-vh-100">
+    <div className="col-12  px-sm-4 px-0 bg-light d-flex sticky-top min-vh-100">
       <div className="d-flex flex-sm-column w-100 align-items-center align-items-sm-start pt-2 text-white">
         <h2 style={style.order} className="text-center">
           Your Order Summary
