@@ -56,7 +56,7 @@ function ProductList() {
     <div className="col-12 col-md-9 p-0">
     <div className="my-2">
     <CategoryMenu />
-      <h2>Our Products:</h2>
+      
       {state.products.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
