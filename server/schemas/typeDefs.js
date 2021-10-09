@@ -43,7 +43,7 @@ const typeDefs = gql`
 
   type Option {
     _id: ID
-    name: STRING
+    name: String
   }
 
   type Query {
