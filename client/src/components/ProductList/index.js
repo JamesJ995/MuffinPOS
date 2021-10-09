@@ -55,8 +55,11 @@ function ProductList() {
     </div>
     <div className="col-12 col-md-9 p-0">
     <div className="my-2">
+
     <CategoryMenu />
-      <h2>Our Products:</h2>
+
+      <h2>{currentCategory.name}</h2>
+
       {state.products.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
@@ -73,7 +76,7 @@ function ProductList() {
         </div>
         
       ) : (
-        <h3>You haven't added any products yet!</h3>
+        <h3>Add some products first!</h3>
       )}
       {loading ? <Spinner animation="border" role="status">
                       <span className="visually-hidden">Loading...</span>
