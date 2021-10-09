@@ -89,7 +89,7 @@ const resolvers = {
       return { session: session.id };
     },
     options: async () => {
-      return Option.findAll();
+      return await Option.findAll();
     },
   },
   Mutation: {
