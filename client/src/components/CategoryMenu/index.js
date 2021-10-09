@@ -45,13 +45,16 @@ function CategoryMenu() {
     tabs :{
       background: "#f4f4f4",
       fontSize: "1.2rem"
+    },
+    sticky: {
+      position:"fixed"
     }
   }
 
   return (
 <div>
     
-    <Nav justify variant="tabs" defaultActiveKey="/home">
+    <Nav justify variant="tabs" defaultActiveKey="/home" style={style.sticky}>
     {categories.map((item) => (
       <Nav.Item style={style.tabs}>
         <Nav.Link  key={item._id}

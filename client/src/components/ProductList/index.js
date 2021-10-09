@@ -9,6 +9,7 @@ import { idbPromise } from '../../utils/helpers';
 import Spinner from 'react-bootstrap/Spinner';
 import Cart from '../Cart';
 import CategoryMenu from '../CategoryMenu';
+import MainNav from '../MainNav'; 
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
@@ -54,8 +55,9 @@ function ProductList() {
       <Cart />
     </div>
     <div className="col-12 col-md-9 p-0">
+    <MainNav />
     <div className="my-2">
-
+    
     <CategoryMenu />
 
       {state.products.length ? (
