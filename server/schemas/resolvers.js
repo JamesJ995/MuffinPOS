@@ -88,9 +88,7 @@ const resolvers = {
 
       return { session: session.id };
     },
-    options: async () => {
-      return Option.findAll();
-    },
+   
   },
   Mutation: {
     addUser: async (parent, args) => {
