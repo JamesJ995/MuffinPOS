@@ -9,8 +9,6 @@ db.once('open', async () => {
     { name: 'Sugar' },
   ]);
 
-  console.log('seeds\n', options);
-
   await Category.deleteMany();
 
   console.log('options seeded');
@@ -151,8 +149,6 @@ db.once('open', async () => {
     //   quantity: 500,
     // },
   ]);
-
-  console.log('product seeds\n', products);
 
   console.log('products seeded');
 

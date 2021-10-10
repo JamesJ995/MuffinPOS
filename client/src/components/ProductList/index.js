@@ -21,7 +21,6 @@ function ProductList() {
 
   useEffect(() => {
     if (data) {
-      console.log('components/productlis data\n', data);
       dispatch({
         type: UPDATE_PRODUCTS,
         products: data.products,

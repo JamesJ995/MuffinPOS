@@ -17,7 +17,6 @@ function CategoryMenu() {
 
   useEffect(() => {
     if (categoryData) {
-      console.log('categoryData\n', categoryData);
       dispatch({
         type: UPDATE_CATEGORIES,
         categories: categoryData.categories,
@@ -43,18 +42,18 @@ function CategoryMenu() {
   };
 
   const style = {
-    tabs :{
-      background: "#f4f4f4",
-      fontSize: "2rem",
-      color: "orange"
+    tabs: {
+      background: '#f4f4f4',
+      fontSize: '2rem',
+      color: 'orange',
     },
     sticky: {
-      top: "3.7em",
-      position:"fixed",
-      width: "100%",
-      zIndex: 33
-    }
-  }
+      top: '3.7em',
+      position: 'fixed',
+      width: '100%',
+      zIndex: 33,
+    },
+  };
 
   return (
     <div>
@@ -73,7 +72,6 @@ function CategoryMenu() {
         ))}
       </Nav>
     </div>
-
   );
 }
 

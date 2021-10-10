@@ -12,7 +12,6 @@ const resolvers = {
     },
     categories: async () => {
       const categoryData = await Category.find();
-      console.log('server/schema/resolvers.js\n', categoryData);
       return categoryData;
     },
     products: async (parent, { category, name }) => {
@@ -108,7 +107,6 @@ const resolvers = {
       return { token, user };
     },
     addOrder: async (parent, { products }, context) => {
-      console.log(context);
       if (context.user) {
         const order = new Order({ products });
 
