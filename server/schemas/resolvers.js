@@ -5,8 +5,15 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
+    options: async () => {
+      const optionData = await Option.find();
+      console.log('resolvers\n', optionData);
+      return optionData;
+    },
     categories: async () => {
-      return await Category.find();
+      const categoryData = await Category.find();
+      console.log('server/schema/resolvers.js\n', categoryData);
+      return categoryData;
     },
     products: async (parent, { category, name }) => {
       const params = {};
@@ -21,10 +28,14 @@ const resolvers = {
         };
       }
 
-      return await Product.find(params).populate('category');
+      return await Product.find(params)
+        .populate('category')
+        .populate('options');
     },
     product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate('category');
+      return await Product.findById(_id)
+        .populate('category')
+        .populate('options');
     },
     user: async (parent, args, context) => {
       if (context.user) {
@@ -87,9 +98,6 @@ const resolvers = {
       });
 
       return { session: session.id };
-    },
-    options: async () => {
-      return await Option.findAll();
     },
   },
   Mutation: {

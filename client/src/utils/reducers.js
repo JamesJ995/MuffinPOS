@@ -88,6 +88,7 @@ export const reducer = (state, action) => {
       };
 
     case UPDATE_OPTIONS:
+      console.log(action.options);
       return {
         ...state,
         options: [...action.options],

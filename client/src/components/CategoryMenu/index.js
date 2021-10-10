@@ -7,7 +7,7 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import Nav from 'react-bootstrap/Nav'
+import Nav from 'react-bootstrap/Nav';
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
 
@@ -17,6 +17,7 @@ function CategoryMenu() {
 
   useEffect(() => {
     if (categoryData) {
+      console.log('categoryData\n', categoryData);
       dispatch({
         type: UPDATE_CATEGORIES,
         categories: categoryData.categories,
@@ -42,30 +43,30 @@ function CategoryMenu() {
   };
 
   const style = {
-    tabs :{
-      background: "#f4f4f4",
-      fontSize: "1.2rem"
-    }
-  }
+    tabs: {
+      background: '#f4f4f4',
+      fontSize: '1.2rem',
+    },
+  };
 
   return (
-<div>
-    
-    <Nav justify variant="tabs" defaultActiveKey="/home">
-    {categories.map((item) => (
-      <Nav.Item style={style.tabs}>
-        <Nav.Link  key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}> {item.name}</Nav.Link>
-      </Nav.Item>
-      ))}
-    </Nav>
-  </div>
-
-    
+    <div>
+      <Nav justify variant="tabs" defaultActiveKey="/home">
+        {categories.map((item) => (
+          <Nav.Item style={style.tabs} key={item._id}>
+            <Nav.Link
+              onClick={() => {
+                handleClick(item._id);
+              }}
+            >
+              {' '}
+              {item.name}
+            </Nav.Link>
+          </Nav.Item>
+        ))}
+      </Nav>
+    </div>
   );
 }
 
 export default CategoryMenu;
-

@@ -19,6 +19,7 @@ function ProductList() {
 
   useEffect(() => {
     if (data) {
+      console.log('components/productlis data\n', data);
       dispatch({
         type: UPDATE_PRODUCTS,
         products: data.products,
@@ -48,42 +49,38 @@ function ProductList() {
 
   return (
     <div>
-      
-    <div className="row d-flex">
-    <div className="col-12 col-md-3">
-      <Cart />
-    </div>
-    <div className="col-12 col-md-9 p-0">
-    <div className="my-2">
-
-    <CategoryMenu />
-
-      {state.products.length ? (
-        <div className="flex-row">
-          {filterProducts().map((product) => (
-            <ProductItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
-            />
-          ))}
-          
+      <div className="row d-flex">
+        <div className="col-12 col-md-3">
+          <Cart />
         </div>
-        
-      ) : (
-        <h3>Add some products first!</h3>
-      )}
-      {loading ? <Spinner animation="border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                  </Spinner> : null}
+        <div className="col-12 col-md-9 p-0">
+          <div className="my-2">
+            <CategoryMenu />
 
-    </div>
-    </div>
-  </div>
-    
+            {state.products.length ? (
+              <div className="flex-row">
+                {filterProducts().map((product) => (
+                  <ProductItem
+                    key={product._id}
+                    _id={product._id}
+                    image={product.image}
+                    name={product.name}
+                    price={product.price}
+                    quantity={product.quantity}
+                  />
+                ))}
+              </div>
+            ) : (
+              <h3>Add some products first!</h3>
+            )}
+            {loading ? (
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            ) : null}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -11,6 +11,11 @@ export const QUERY_PRODUCTS = gql`
       image
       category {
         _id
+        name
+      }
+      options {
+        _id
+        name
       }
     }
   }
@@ -71,7 +76,7 @@ export const QUERY_USER = gql`
 
 export const QUERY_OPTIONS = gql`
   {
-    option {
+    options {
       _id
       name
     }

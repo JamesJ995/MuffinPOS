@@ -9,6 +9,8 @@ db.once('open', async () => {
     { name: 'Sugar' },
   ]);
 
+  console.log('seeds\n', options);
+
   await Category.deleteMany();
 
   console.log('options seeded');
@@ -26,7 +28,7 @@ db.once('open', async () => {
     //   ],
     // },
     { name: 'Donuts' },
-    { name: 'Coffee', options: [options[0]._id, options[1]._id] },
+    { name: 'Coffee' },
     { name: 'Kolaches' },
     { name: 'Eggs' },
     // { name: 'Tacos', addOns: ['Mild Salsa', 'Medium Salsa', 'Fire Salsa'] },
@@ -103,7 +105,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       price: 1.5,
       quantity: 500,
-      options: [],
+      options: [options[0]._id, options[1]._id],
     },
     {
       name: 'Sausage Kolache',
@@ -149,6 +151,8 @@ db.once('open', async () => {
     //   quantity: 500,
     // },
   ]);
+
+  console.log('product seeds\n', products);
 
   console.log('products seeded');
 

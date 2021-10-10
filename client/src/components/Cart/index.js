@@ -59,30 +59,30 @@ const Cart = () => {
       variables: { products: productIds },
     });
   }
-const style ={
-  sidebar :{
-    position: "fixed",
-    top: "51px",
-    bottom: 0,
-    left: 0,
-    zIndex: 1000,
-    display: "block",
-    padding: "20px",
-    overflowX: "hidden",
-    overflowY: "auto",
-    borderRight: "1px solid #eee",
-    width: "5rem"
-  },
-  total :{
-    fontSize:"2rem",
-    textAlign: "center",
-    color: "#888888"
-  },
-  order: {
-    color:"#333",
-    textAlign: "center"
-  }
-}
+  const style = {
+    sidebar: {
+      position: 'fixed',
+      top: '51px',
+      bottom: 0,
+      left: 0,
+      zIndex: 1000,
+      display: 'block',
+      padding: '20px',
+      overflowX: 'hidden',
+      overflowY: 'auto',
+      borderRight: '1px solid #eee',
+      width: '5rem',
+    },
+    total: {
+      fontSize: '2rem',
+      textAlign: 'center',
+      color: '#888888',
+    },
+    order: {
+      color: '#333',
+      textAlign: 'center',
+    },
+  };
   // if (!state.cartOpen) {
   //   return (
   //     <div className="cart-closed" onClick={toggleCart}>
@@ -94,49 +94,46 @@ const style ={
   // }
 
   return (
-
-  <div className="col-12  px-sm-2 px-0 bg-light d-flex sticky-top min-vh-100">
-    
-    <div className="d-flex flex-sm-column w-100 align-items-center align-items-sm-start pt-2 text-white">
-       <h2 style={style.order} className="text-center">Your Order Summary</h2>
+    <div className="col-12  px-sm-2 px-0 bg-light d-flex sticky-top min-vh-100">
+      <div className="d-flex flex-sm-column w-100 align-items-center align-items-sm-start pt-2 text-white">
+        <h2 style={style.order} className="text-center">
+          Your Order Summary
+        </h2>
         {state.cart.length ? (
           <div className="w-100">
-          <ul class="list-group mb-3">
-          {state.cart.map((item) => (
-             
-              <CartItem key={item._id} item={item} />
-           
-          ))}
-          </ul>
+            <ul className="list-group mb-3">
+              {state.cart.map((item) => (
+                <CartItem key={item._id} item={item} />
+              ))}
+            </ul>
             <div className="p-4 border-top" style={style.total}>
-              
-                  <strong>Total: ${calculateTotal()}</strong>
+              <strong>Total: ${calculateTotal()}</strong>
             </div>
-        
-      
-            <div class="p-2 w-100 mt-auto align-self-end ">
-     
-                {Auth.loggedIn() ? (
-                  <button className="btn-warning btn-lg btn-block w-100 p-4" onClick={submitCheckout}>Proceed To Payment</button>
-                ) : (
-                  <div className="bg-danger p-4 text-center"><h2 className="text-white">(log in to check out)</h2></div>
-                )}
-            </div>
-        </div>
-         
-      ) : (
-        <div className="toast">
-          
-          <h2 style={style.order}>
-            You haven't added anything to your cart yet!
-          </h2>
-        </div>
-        
-      )}
-            </div>
-        </div>
 
- 
+            <div className="p-2 w-100 mt-auto align-self-end ">
+              {Auth.loggedIn() ? (
+                <button
+                  className="btn-warning btn-lg btn-block w-100 p-4"
+                  onClick={submitCheckout}
+                >
+                  Proceed To Payment
+                </button>
+              ) : (
+                <div className="bg-danger p-4 text-center">
+                  <h2 className="text-white">(log in to check out)</h2>
+                </div>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className="toast">
+            <h2 style={style.order}>
+              You haven't added anything to your cart yet!
+            </h2>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
