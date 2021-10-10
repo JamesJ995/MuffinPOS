@@ -14,7 +14,6 @@ export const QUERY_PRODUCTS = gql`
         name
       }
       options {
-        _id
         name
       }
     }
@@ -76,7 +75,7 @@ export const QUERY_USER = gql`
 
 export const QUERY_OPTIONS = gql`
   {
-    options {
+    option {
       _id
       name
     }
