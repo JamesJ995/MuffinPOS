@@ -23,7 +23,6 @@ function Detail() {
   const { id } = useParams();
 
   const [currentProduct, setCurrentProduct] = useState({});
-  const { options } = currentProduct;
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -85,8 +84,10 @@ function Detail() {
 
     idbPromise('cart', 'delete', { ...currentProduct });
   };
+
+  const { options } = currentProduct;
   const renderOptions = () => {
-    if (options.length > 0) {
+    if (options) {
       return options.map((option) => {
         return (
           <button
