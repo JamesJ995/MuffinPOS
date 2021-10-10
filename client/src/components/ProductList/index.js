@@ -48,9 +48,9 @@ function ProductList() {
     );
   }
   const style = {
-    product: {
-      paddingTop: '8em',
-    },
+    prodList: {
+      marginTop: 140
+    }
   };
   return (
     <div>
@@ -68,7 +68,7 @@ function ProductList() {
                 <CategoryMenu />
 
                 {state.products.length ? (
-                  <div className="flex-row">
+                  <div className="flex-row" style={style.prodList}>
                     {filterProducts().map((product) => (
                       <ProductItem
                         key={product._id}

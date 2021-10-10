@@ -36,29 +36,35 @@ function ProductItem(item) {
     }
   };
 
+  const style = {
+    detailBtn: {
+      margin: 0
+    },
+    productCard: {
+      border: "solid",
+      borderStyle: "striped"
+    }
+  };
+
+
   return (
-    <Card className="col-4 mb-2 border-0">
-      <Link to={`/`}>
-        <Card.Img
+    <Card className="col-3" style={style.productCard}>
+      <Card.Body>
+      {name}
+      <Card.Img
           onClick={addToCart}
           variant="top"
           className="rounded-pill p-2"
           alt={name}
           src={`/images/${image}`}
           width="100%"
-          height="100%"
+          height="250"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
           aria-label={name}
           preserveAspectRatio="xMidYMid slice"
           focusable="false"
         />
-      </Link>
-      <Card.Body>
-        <Card.Title>{name}</Card.Title>
-      </Card.Body>
-
-      <Card.Body>
         <button
           className="btn btn-warning"
           onClick={(e) => {
