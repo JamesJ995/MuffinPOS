@@ -43,15 +43,22 @@ function CategoryMenu() {
   };
 
   const style = {
-    tabs: {
-      background: '#f4f4f4',
-      fontSize: '1.2rem',
+    tabs :{
+      background: "#f4f4f4",
+      fontSize: "2rem",
+      color: "orange"
     },
-  };
+    sticky: {
+      top: "3.7em",
+      position:"fixed",
+      width: "100%",
+      zIndex: 33
+    }
+  }
 
   return (
     <div>
-      <Nav justify variant="tabs" defaultActiveKey="/home">
+      <Nav justify variant="tabs" defaultActiveKey="/home" style={style.sticky}>
         {categories.map((item) => (
           <Nav.Item style={style.tabs} key={item._id}>
             <Nav.Link
@@ -66,6 +73,7 @@ function CategoryMenu() {
         ))}
       </Nav>
     </div>
+
   );
 }
 
