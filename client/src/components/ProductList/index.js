@@ -9,6 +9,8 @@ import { idbPromise } from '../../utils/helpers';
 import Spinner from 'react-bootstrap/Spinner';
 import Cart from '../Cart';
 import CategoryMenu from '../CategoryMenu';
+import MainNav from '../MainNav'; 
+import Cheugy from '../Cheugy';
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
@@ -46,12 +48,36 @@ function ProductList() {
       (product) => product.category._id === currentCategory
     );
   }
-
+const style = {
+  product: {
+    paddingTop: "8em"
+  }
+}
   return (
-    <div>
-      <div className="row d-flex">
-        <div className="col-12 col-md-3">
-          <Cart />
+    <div>    
+    <div className="row d-flex p-0 m-0">
+    <div className="col-12 col-xl-3 p-0">
+      <Cart />
+      <Cheugy />
+    </div>
+    <div className="col-12 col-md-9 p-0">
+    <MainNav />
+    <div className="my-2">
+    
+    <CategoryMenu />
+
+      {state.products.length ? (
+        <div className="flex-row" style={style.product}>
+          {filterProducts().map((product) => (
+            <ProductItem
+              key={product._id}
+              _id={product._id}
+              image={product.image}
+              name={product.name}
+              price={product.price}
+              quantity={product.quantity}
+            />
+          ))}
         </div>
         <div className="col-12 col-md-9 p-0">
           <div className="my-2">
