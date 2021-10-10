@@ -26,7 +26,7 @@ db.once('open', async () => {
     //   ],
     // },
     { name: 'Donuts' },
-    { name: 'Coffee', options: [options[0]._id, options[1]._id] },
+    { name: 'Coffee' },
     { name: 'Kolaches' },
     { name: 'Eggs' },
     // { name: 'Tacos', addOns: ['Mild Salsa', 'Medium Salsa', 'Fire Salsa'] },
@@ -68,6 +68,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       price: 1.0,
       quantity: 500,
+      options: [],
     },
     {
       name: 'Chocolate Donut',
@@ -76,6 +77,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       price: 1.0,
       quantity: 500,
+      options: [],
     },
     // {
     //   name: 'Party Donut',
@@ -92,6 +94,7 @@ db.once('open', async () => {
       category: categories[0]._id,
       price: 1.5,
       quantity: 500,
+      options: [],
     },
     {
       name: 'Coffee',
@@ -100,6 +103,7 @@ db.once('open', async () => {
       category: categories[1]._id,
       price: 1.5,
       quantity: 500,
+      options: [options[0]._id, options[1]._id],
     },
     {
       name: 'Sausage Kolache',
@@ -108,6 +112,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       price: 2.99,
       quantity: 500,
+      options: [],
     },
     {
       name: 'Sweet Kolache',
@@ -116,6 +121,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       price: 2.99,
       quantity: 500,
+      options: [],
     },
     {
       name: 'Egg',
@@ -124,6 +130,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       price: 1.99,
       quantity: 500,
+      options: [],
     },
     // {
     //   name: 'Chorizo and Egg',

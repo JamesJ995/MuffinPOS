@@ -8,12 +8,6 @@ const categorySchema = new Schema({
     required: true,
     trim: true,
   },
-  options: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Option',
-    },
-  ],
 });
 
 const Category = mongoose.model('Category', categorySchema);

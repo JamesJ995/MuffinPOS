@@ -84,6 +84,7 @@ const Cart = () => {
     },
   };
 
+
   // if (!state.cartOpen) {
   //   return (
   //     <div className="cart-closed" onClick={toggleCart}>
@@ -102,7 +103,7 @@ const Cart = () => {
         </h2>
         {state.cart.length ? (
           <div className="w-100">
-            <ul class="list-group mb-3">
+            <ul className="list-group mb-3">
               {state.cart.map((item) => (
                 <CartItem key={item._id} item={item} />
               ))}
@@ -110,8 +111,7 @@ const Cart = () => {
             <div className="p-4 border-top" style={style.total}>
               <strong>Total: ${calculateTotal()}</strong>
             </div>
-
-            <div class="p-2 w-100 mt-auto align-self-end ">
+            <div className="p-2 w-100 mt-auto align-self-end ">
               {Auth.loggedIn() ? (
                 <button
                   className="btn-warning btn-lg btn-block w-100 p-4"

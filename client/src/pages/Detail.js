@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row'
+import Row from 'react-bootstrap/Row';
 import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_CART,
@@ -84,6 +85,23 @@ function Detail() {
     idbPromise('cart', 'delete', { ...currentProduct });
   };
 
+  const { options } = currentProduct;
+  const renderOptions = () => {
+    if (options) {
+      return options.map((option) => {
+        return (
+          <button
+            className="btn btn-primary my-2"
+            id={option.name}
+            key={option.name}
+          >
+            Add {option.name}
+          </button>
+        );
+      });
+    }
+  };
+
   if (Auth.loggedIn()) {
     return (
       <>
@@ -124,6 +142,7 @@ function Detail() {
                     Remove from Cart
                   </button>
                 </p>
+                <p className="row">{renderOptions()}</p>
               </Col>
             </Row>
           </Container>

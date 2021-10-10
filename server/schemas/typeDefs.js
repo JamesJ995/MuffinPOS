@@ -1,10 +1,14 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+  type Option {
+    _id: ID
+    name: String
+  }
+
   type Category {
     _id: ID
     name: String
-    addOns: [String]
   }
 
   type Product {
@@ -15,6 +19,7 @@ const typeDefs = gql`
     quantity: Int
     price: Float
     category: Category
+    options: [Option]
   }
 
   type Order {
@@ -41,11 +46,6 @@ const typeDefs = gql`
     user: User
   }
 
-  type Option {
-    _id: ID
-    name: String
-  }
-
   type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]
@@ -53,6 +53,7 @@ const typeDefs = gql`
     user: User
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
+    options: [Option]
   }
 
   type Mutation {

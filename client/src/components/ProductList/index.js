@@ -9,7 +9,7 @@ import { idbPromise } from '../../utils/helpers';
 import Spinner from 'react-bootstrap/Spinner';
 import Cart from '../Cart';
 import CategoryMenu from '../CategoryMenu';
-import MainNav from '../MainNav'; 
+import MainNav from '../MainNav';
 import Cheugy from '../Cheugy';
 
 function ProductList() {
@@ -47,51 +47,52 @@ function ProductList() {
       (product) => product.category._id === currentCategory
     );
   }
-const style = {
-  product: {
-    paddingTop: "8em"
-  }
-}
+  const style = {
+    product: {
+      paddingTop: '8em',
+    },
+  };
   return (
     <div>
-      
-    <div className="row d-flex p-0 m-0">
-    <div className="col-12 col-xl-3 p-0">
-      <Cart />
-      <Cheugy />
-    </div>
-    <div className="col-12 col-md-9 p-0">
-    <MainNav />
-    <div className="my-2">
-    
-    <CategoryMenu />
-
-      {state.products.length ? (
-        <div className="flex-row" style={style.product}>
-          {filterProducts().map((product) => (
-            <ProductItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              quantity={product.quantity}
-            />
-          ))}
-          
+      <div className="row d-flex p-0 m-0">
+        <div className="col-12 col-xl-3 p-0">
+          <Cart />
+          <Cheugy />
         </div>
-        
-      ) : (
-        <h3>Add some products first!</h3>
-      )}
-      {loading ? <Spinner animation="border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                  </Spinner> : null}
+        <div className="col-12 col-md-9 p-0">
+          <MainNav />
+          <div className="my-2">
+            <CategoryMenu />
+            <div className="col-12 col-md-9 p-0">
+              <div className="my-2">
+                <CategoryMenu />
 
-    </div>
-    </div>
-  </div>
-    
+                {state.products.length ? (
+                  <div className="flex-row">
+                    {filterProducts().map((product) => (
+                      <ProductItem
+                        key={product._id}
+                        _id={product._id}
+                        image={product.image}
+                        name={product.name}
+                        price={product.price}
+                        quantity={product.quantity}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <h3>Add some products first!</h3>
+                )}
+                {loading ? (
+                  <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </Spinner>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
