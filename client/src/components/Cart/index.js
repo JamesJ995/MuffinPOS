@@ -6,7 +6,7 @@ import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 //import './style.css';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
@@ -33,10 +33,6 @@ const Cart = () => {
       getCart();
     }
   }, [state.cart.length, dispatch]);
-
-  function toggleCart() {
-    dispatch({ type: TOGGLE_CART });
-  }
 
   function calculateTotal() {
     let sum = 0;
@@ -69,7 +65,7 @@ const Cart = () => {
       display: 'block',
       padding: '20px',
       overflowX: 'hidden',
-      overflowY: 'auto',
+      overflowY: 'hidden',
       borderRight: '1px solid #eee',
       width: '5rem',
     },
@@ -84,22 +80,11 @@ const Cart = () => {
     },
   };
 
-
-  // if (!state.cartOpen) {
-  //   return (
-  //     <div className="cart-closed" onClick={toggleCart}>
-  //       <span role="img" aria-label="trash">
-  //         🛒
-  //       </span>
-  //     </div>
-  //   );
-  // }
-
   return (
-    <div className="col-12  px-sm-4 px-0 bg-light d-flex sticky-top min-vh-100">
+    <div className="col-m-12 px-sm-4 px-0 bg-light d-flex sticky-top min-vh-100 w-auto">
       <div className="d-flex flex-sm-column w-100 align-items-center align-items-sm-start pt-2 text-white">
         <h2 style={style.order} className="text-center">
-          Your Order Summary
+          Order Summary
         </h2>
         {state.cart.length ? (
           <div className="w-100">

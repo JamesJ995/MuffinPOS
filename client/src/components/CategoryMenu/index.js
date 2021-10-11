@@ -8,6 +8,7 @@ import {
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import Nav from 'react-bootstrap/Nav';
+import Card from 'react-bootstrap/esm/Card';
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
 
@@ -57,10 +58,11 @@ function CategoryMenu() {
 
   return (
     <div>
+    <Card.Body>
       <Nav justify variant="tabs" defaultActiveKey="/home" style={style.sticky}>
         {categories.map((item) => (
           <Nav.Item style={style.tabs} key={item._id}>
-            <Nav.Link
+            <Nav.Link style={style.tabs}
               onClick={() => {
                 handleClick(item._id);
               }}
@@ -71,6 +73,7 @@ function CategoryMenu() {
           </Nav.Item>
         ))}
       </Nav>
+      </Card.Body>
     </div>
   );
 }
