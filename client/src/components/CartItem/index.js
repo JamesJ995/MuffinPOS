@@ -64,10 +64,12 @@ const CartItem = ({ item }) => {
   const style = {
     list: {
       fontSize: '1.2em',
-      textAlign: 'center',
+      overflow: "hidden",
+      textAlign: "center"
     },
     name: {
-      fontSize: '1.2em',
+      fontSize: '0.8em',
+      textAlign: "center"
     },
   };
 
@@ -90,21 +92,21 @@ const CartItem = ({ item }) => {
             -
           </button>
         </div>
-        <div className="p-2 w-100 ">
+        <div className="p-2 w-180 ">
           <h6 className="my-0" style={style.name}>
             {item.name}
           </h6>
         </div>
-        <div className="p-2" style={style.list}>
-          <h6>Price {item.price}</h6>{' '}
+        <div className="p-1" style={style.list}>
+          <h6>${item.price}</h6>{' '}
         </div>
 
-        <div className="p-2" style={style.list}>
-          <h6>Quantity {item.purchaseQuantity}</h6>
+        <div className="p-1" style={style.list}>
+          <h6>x{item.purchaseQuantity}</h6>
         </div>
         <span className="text-muted d-none">$12</span>
         <span
-          className="bg-danger p-4 text-white"
+          className="bg-danger p-3 text-white"
           role="img"
           aria-label="trash"
           onClick={() => removeFromCart(item)}

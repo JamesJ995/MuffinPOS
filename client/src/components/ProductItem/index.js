@@ -38,27 +38,27 @@ function ProductItem(item) {
 
   const style = {
     detailBtn: {
-      margin: 0
+      margin: 0,
     },
     productCard: {
-      border: "solid",
-      borderStyle: "striped"
-    }
+      marginTop: 0,
+      border: 'solid',
+      borderStyle: 'striped',
+    },
   };
-
 
   return (
     <Card className="col-3" style={style.productCard}>
       <Card.Body>
-      {name}
-      <Card.Img
+        {name}
+        <Card.Img
           onClick={addToCart}
           variant="top"
-          className="rounded-pill p-2"
+          className="box p-2"
           alt={name}
           src={`/images/${image}`}
           width="100%"
-          height="250"
+          height="200"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
           aria-label={name}
@@ -66,7 +66,7 @@ function ProductItem(item) {
           focusable="false"
         />
         <button
-          className="btn btn-warning"
+          className="btn btn-success"
           onClick={(e) => {
             e.preventDefault();
             window.location.href = `/products/${_id}`;

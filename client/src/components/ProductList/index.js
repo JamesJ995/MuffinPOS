@@ -49,7 +49,7 @@ function ProductList() {
   }
   const style = {
     prodList: {
-      marginTop: 140
+      marginTop: 60
     }
   };
   return (
