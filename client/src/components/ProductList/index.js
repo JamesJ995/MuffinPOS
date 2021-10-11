@@ -49,7 +49,7 @@ function ProductList() {
   }
   const style = {
     prodList: {
-      marginTop: 60
+      marginTop: "8rem"
     }
   };
   return (
@@ -63,12 +63,12 @@ function ProductList() {
           <MainNav />
           <div className="my-2">
             <CategoryMenu />
-            <div className="col-12 col-md-9 p-0">
+            <div className="col-12 p-0">
               <div className="my-2">
                 <CategoryMenu />
 
                 {state.products.length ? (
-                  <div className="flex-row" style={style.prodList}>
+                  <div className="flex-row p-2 " style={style.prodList}>
                     {filterProducts().map((product) => (
                       <ProductItem
                         key={product._id}

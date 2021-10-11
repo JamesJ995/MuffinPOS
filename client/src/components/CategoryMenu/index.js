@@ -58,7 +58,6 @@ function CategoryMenu() {
 
   return (
     <div>
-    <Card.Body>
       <Nav justify variant="tabs" defaultActiveKey="/home" style={style.sticky}>
         {categories.map((item) => (
           <Nav.Item style={style.tabs} key={item._id}>
@@ -73,7 +72,6 @@ function CategoryMenu() {
           </Nav.Item>
         ))}
       </Nav>
-      </Card.Body>
     </div>
   );
 }
