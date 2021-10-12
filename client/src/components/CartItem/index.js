@@ -64,12 +64,12 @@ const CartItem = ({ item }) => {
   const style = {
     list: {
       fontSize: '1.2em',
-      overflow: "hidden",
-      textAlign: "center"
+      overflow: 'hidden',
+      textAlign: 'center',
     },
     name: {
       fontSize: '0.8em',
-      textAlign: "center"
+      textAlign: 'center',
     },
   };
 
@@ -98,7 +98,7 @@ const CartItem = ({ item }) => {
           </h6>
         </div>
         <div className="p-1" style={style.list}>
-          <h6>${item.price}</h6>{' '}
+          <h6>${parseFloat(item.price).toFixed(2)}</h6>{' '}
         </div>
 
         <div className="p-1" style={style.list}>
