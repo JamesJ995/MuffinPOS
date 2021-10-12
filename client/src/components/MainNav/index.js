@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import metadata from './../../metadata.json';
+import DateTime from './../Date';
 
 const style = {
   sticky: {
@@ -23,10 +24,14 @@ function MainNav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
+        
         <Nav className="me-auto align-items-end">
           <Nav.Link href="/orderHistory">Order History</Nav.Link>
           <Nav.Link href="/" onClick={() => Auth.logout()}>
             Logout
+          </Nav.Link>
+          <Nav.Link disabled>
+          <DateTime />
           </Nav.Link>
         </Nav>
       );
