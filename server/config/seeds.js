@@ -14,22 +14,10 @@ db.once('open', async () => {
   console.log('options seeded');
 
   const categories = await Category.insertMany([
-    // {
-    //   name: 'Toast',
-    //   addOns: [
-    //     'Peanut Butter',
-    //     'Apple Butter',
-    //     'Pumpkin Butter',
-    //     'Cinamon Butter',
-    //     'Butter',
-    //     'Avacado Spread',
-    //   ],
-    // },
     { name: 'Donuts' },
     { name: 'Coffee' },
     { name: 'Kolaches' },
     { name: 'Eggs' },
-    // { name: 'Tacos', addOns: ['Mild Salsa', 'Medium Salsa', 'Fire Salsa'] },
   ]);
 
   console.log('categories seeded');
@@ -37,33 +25,9 @@ db.once('open', async () => {
   await Product.deleteMany();
 
   const products = await Product.insertMany([
-    // {
-    //   name: 'Cloud Toast',
-    //   description: 'Toasted wonder bread',
-    //   image: 'https://picsum.photos/200/200',
-    //   category: categories[0]._id,
-    //   price: 2.99,
-    //   quantity: 500,
-    // },
-    // {
-    //   name: 'Weat Toast',
-    //   description: 'Toasted wheat bread',
-    //   image: 'https://picsum.photos/200/200',
-    //   category: categories[0]._id,
-    //   price: 2.99,
-    //   quantity: 500,
-    // },
-    // {
-    //   name: 'Marble Toast',
-    //   description: 'Toasted marble rye bread',
-    //   image: 'https://picsum.photos/200/200',
-    //   category: categories[0]._id,
-    //   price: 2.99,
-    //   quantity: 500,
-    // },
     {
       name: 'Plain Donut',
-      description: 'A plain donut',
+      description: 'Butter, Flour, Egg, Milk',
       image: 'plain-donut.jpg',
       category: categories[0]._id,
       price: 1.0,
@@ -72,24 +36,16 @@ db.once('open', async () => {
     },
     {
       name: 'Chocolate Donut',
-      description: 'A double chocolate donut',
+      description: 'Butter, Flour, Egg, Milk, Chocolate',
       image: 'chocoDonut.jpg',
       category: categories[0]._id,
       price: 1.0,
       quantity: 500,
       options: [],
     },
-    // {
-    //   name: 'Party Donut',
-    //   description: 'A sprinkle donut',
-    //   image: 'https://picsum.photos/200/200',
-    //   category: categories[1]._id,
-    //   price: 1.0,
-    //   quantity: 500,
-    // },
     {
       name: 'Apple Fritter',
-      description: "God's greatest gift to humanity",
+      description: 'Butter, Flour, Egg, Milk, Apple, Cinnamon',
       image: 'appleFritter.jpg',
       category: categories[0]._id,
       price: 1.5,
@@ -98,7 +54,7 @@ db.once('open', async () => {
     },
     {
       name: 'Coffee',
-      description: "God's second greatest gift to humanity",
+      description: 'Coffe, Water',
       image: 'coffee.jpg',
       category: categories[1]._id,
       price: 1.5,
@@ -107,7 +63,7 @@ db.once('open', async () => {
     },
     {
       name: 'Sausage Kolache',
-      description: 'Sausage wrapped in fluffy pastry',
+      description: 'Butter, Flour, Egg, Milk, Pork Sausage',
       image: 'sausKolache.jpg',
       category: categories[2]._id,
       price: 2.99,
@@ -116,38 +72,13 @@ db.once('open', async () => {
     },
     {
       name: 'Sweet Kolache',
-      description: 'Jelly wrapped in fluffy pastry',
+      description: 'Butter, Flour, Egg, Milk, Real Fruit Filling',
       image: 'sweetKolache.jpg',
       category: categories[2]._id,
       price: 2.99,
       quantity: 500,
       options: [],
     },
-    {
-      name: 'Egg',
-      description: 'just egg',
-      image: 'egg.jpg',
-      category: categories[3]._id,
-      price: 1.99,
-      quantity: 500,
-      options: [],
-    },
-    // {
-    //   name: 'Chorizo and Egg',
-    //   description: 'Chorizo egg taco',
-    //   image: 'https://picsum.photos/200/200',
-    //   category: categories[4]._id,
-    //   price: 1.99,
-    //   quantity: 500,
-    // },
-    // {
-    //   name: 'Hash and Egg',
-    //   description: 'fried potatoe and egg taco',
-    //   image: 'https://picsum.photos/200/200',
-    //   category: categories[4]._id,
-    //   price: 1.99,
-    //   quantity: 500,
-    // },
   ]);
 
   console.log('products seeded');
