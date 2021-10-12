@@ -55,7 +55,7 @@ function ProductList() {
   return (
     <div>
       <div className="row d-flex p-0 m-0">
-        <div className="col-12 col-xl-3 p-0">
+        <div className="col-12 col-md-3 p-0">
           <Cart />
           <Cheugy />
         </div>

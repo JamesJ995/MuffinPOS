@@ -40,9 +40,9 @@ function Login(props) {
     <Container style={{position: "relative"}}>
       <Row>
         <Col className="col py-5 md-offset-4" >
-          <Card className="col-12 col-md-6 mx-auto" style={{marginTop: "120px", marginBottom: "405px"}}>
+          <Card className="col-12 col-md-6 mx-auto" style={{marginTop: "145px", marginBottom: "405px"}}>
             <Card.Body>
-              <h2>🍞Toast Login🍞</h2>
+              <h2>MuffinPOS</h2>
 
               <Form onSubmit={handleFormSubmit} className="w-100">
                 <Form.Group className="mb-3">
