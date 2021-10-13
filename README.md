@@ -17,12 +17,13 @@ The application can be used by cloning this repo and installing all Node package
 ## License
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-Link to the license: https://opensource.org/licenses/MIT
+[Click here](https://opensource.org/licenses/MIT) for the link to the license 
 
 ## Deployment
-https://muffin-point-of-sale.herokuapp.com/
+This application is deployed using Heroku.
+In order to see the deployed application, [click here.](https://muffin-point-of-sale.herokuapp.com/)
 
-Working Heroku deployment
+![Status Stable](https://img.shields.io/badge/Status-Stable-yellow)
 
 ## Contributing
 - James Johnson - [JamesJ995](https://github.com/JamesJ995) 
