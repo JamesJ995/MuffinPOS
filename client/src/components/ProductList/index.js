@@ -49,24 +49,25 @@ function ProductList() {
   }
   const style = {
     prodList: {
-      marginTop: "8rem"
-    }
+      marginTop: '8rem',
+    },
   };
   return (
-    <div>
+    <div className="container-fluid">
       <div className="row d-flex p-0 m-0">
         <div className="col-12 col-xl-3 p-0">
           <Cart />
           <Cheugy />
         </div>
         <div className="col-12 col-md-9 p-0">
-          <MainNav />
-          <div className="my-2">
-            <CategoryMenu />
-            <div className="col-12 p-0">
-              <div className="my-2">
+          <div className="row">
+            <MainNav />
+            <div className="col-12 my-2">
+              <div style={{ position: 'relative', width: '100%' }}>
                 <CategoryMenu />
+              </div>
 
+              <div className="my-2">
                 {state.products.length ? (
                   <div className="flex-row p-2 " style={style.prodList}>
                     {filterProducts().map((product) => (
