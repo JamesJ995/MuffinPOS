@@ -70,7 +70,7 @@ const CartItem = ({ item }) => {
     name: {
       fontSize: '0.8em',
       textAlign: 'center',
-    },
+    }
   };
 
   return (
@@ -92,6 +92,7 @@ const CartItem = ({ item }) => {
             -
           </button>
         </div>
+        <div className="col-6">
         <div className="p-2 w-180 ">
           <h6 className="my-0" style={style.name}>
             {item.name}
@@ -100,9 +101,9 @@ const CartItem = ({ item }) => {
         <div className="p-1" style={style.list}>
           <h6>${parseFloat(item.price).toFixed(2)}</h6>{' '}
         </div>
-
         <div className="p-1" style={style.list}>
           <h6>x{item.purchaseQuantity}</h6>
+        </div>
         </div>
         <span className="text-muted d-none">$12</span>
         <span
