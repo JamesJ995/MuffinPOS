@@ -6,20 +6,27 @@ import Button from 'react-bootstrap/Modal';
 import { useState} from 'react';
 
 export default class Cheugy extends React.Component {
-
-  
-
-  theBottom = () => {
-    
-    <Video handleShow="true" />
-    alert('Hey, you found it!');
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+        showVideo : false
+    }
+  };
 
   render = () => (
-    <Konami action={this.theBottom}>
-     
-      {"Hey, Look at me!"}
-    </Konami>
+    <>
+      <Konami action={() => this.setState({showVideo: true})}/>
+      <Modal show={this.state.showVideo} onHide={() => this.setState({showVideo: false})}>
+          <Modal.Header closeButton>
+              <Modal.Title>My Profile</Modal.Title>
+          </Modal.Header>
+          <Modal.Body><iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></Modal.Body>
+          <Modal.Footer>
+              <Button variant="secondary" onClick={this.handleClose}>Close</Button>
+              <Button variant="primary">Save Changes</Button>
+          </Modal.Footer>
+      </Modal>
+    </>
   )
 }
 
@@ -27,6 +34,7 @@ export default class Cheugy extends React.Component {
 class Video extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
         show: true
     };
@@ -34,6 +42,7 @@ class Video extends React.Component {
     this.handleClose = this.handleClose.bind(this);
     this.handleShow = this.handleShow.bind(this);
   }
+
   handleClose (){
     this.setState({ show: false });
   };
@@ -47,17 +56,6 @@ class Video extends React.Component {
     return(
         <div>
             <Button variant="primary" onClick={this.handleShow}>Launch modal</Button>
-
-            <Modal show={this.state.show} onHide={this.handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>My Profile</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>...</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-                    <Button variant="primary">Save Changes</Button>
-                </Modal.Footer>
-            </Modal>
         </div>
     );
   }
