@@ -17,7 +17,7 @@ db.once('open', async () => {
     { name: 'Donuts' },
     { name: 'Coffee' },
     { name: 'Kolaches' },
-    { name: 'Eggs' },
+    { name: 'Muffins' },
   ]);
 
   console.log('categories seeded');
@@ -44,6 +44,15 @@ db.once('open', async () => {
       options: [],
     },
     {
+      name: 'French Cruller',
+      description: 'Butter, Flour, Egg, Milk, Chocolate',
+      image: 'Cruller.jpg',
+      category: categories[0]._id,
+      price: 1.5,
+      quantity: 500,
+      options: [],
+    },
+    {
       name: 'Apple Fritter',
       description: 'Butter, Flour, Egg, Milk, Apple, Cinnamon',
       image: 'appleFritter.jpg',
@@ -62,6 +71,24 @@ db.once('open', async () => {
       options: [options[0]._id, options[1]._id],
     },
     {
+      name: 'Latte',
+      description: 'Espresso, Water, Milk',
+      image: 'latte.jpg',
+      category: categories[1]._id,
+      price: 1.99,
+      quantity: 500,
+      options: [options[0]._id, options[1]._id],
+    },
+    {
+      name: 'Pumpkin Spice Late',
+      description: 'Espresso, Milk, Cinamon, Allspice, Ginger, Nutmeg, Cloves',
+      image: 'Pumpkin-Spice-Latte.jpg',
+      category: categories[1]._id,
+      price: 1.99,
+      quantity: 500,
+      options: [options[0]._id, options[1]._id],
+    },
+    {
       name: 'Sausage Kolache',
       description: 'Butter, Flour, Egg, Milk, Pork Sausage',
       image: 'sausKolache.jpg',
@@ -75,6 +102,35 @@ db.once('open', async () => {
       description: 'Butter, Flour, Egg, Milk, Real Fruit Filling',
       image: 'sweetKolache.jpg',
       category: categories[2]._id,
+      price: 2.99,
+      quantity: 500,
+      options: [],
+    },
+    {
+      name: 'Blueberry Muffin',
+      description: 'Butter, Flour, Egg, Milk, Blueberries, Sugar',
+      image: 'blueberry-muffin.jpg',
+      category: categories[3]._id,
+      price: 2.99,
+      quantity: 500,
+      options: [],
+    },
+    {
+      name: 'Pumpkin Muffin',
+      description:
+        'Butter, Flour, Egg, Milk, Cinamon, Allspice, Ginger, Nutmeg, Cloves, Sugar',
+      image: 'Pumpkin-muffin.jpg',
+      category: categories[3]._id,
+      price: 2.99,
+      quantity: 500,
+      options: [],
+    },
+    {
+      name: 'Poppy Seed Muffin',
+      description:
+        'Butter, Flour, Egg, Milk, Orange Flavor, Poppy Seeds, Lemon Flavor, Sugar',
+      image: 'Pumpkin-muffin.jpg',
+      category: categories[3]._id,
       price: 2.99,
       quantity: 500,
       options: [],

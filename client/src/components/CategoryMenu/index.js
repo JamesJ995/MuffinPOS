@@ -41,37 +41,46 @@ function CategoryMenu() {
       currentCategory: id,
     });
   };
-
+  const width = 100 / categories.length;
   const style = {
     tabs: {
       background: '#f4f4f4',
       fontSize: '2rem',
-      color: 'orange',
+      color: '#ffc107',
+      width: `${width}%`,
     },
     sticky: {
       top: '3.7em',
       position: 'fixed',
-      width: '100%',
+      right: 0,
+      width: '75%',
       zIndex: 33,
+      display: 'flex',
+      justifyContent: 'space-around',
     },
   };
-
+  console.log(categories);
   return (
-    <div>
-      <Nav justify variant="tabs" defaultActiveKey="/home" style={style.sticky}>
-        {categories.map((item) => (
-          <Nav.Item style={style.tabs} key={item._id}>
-            <Nav.Link style={style.tabs}
-              onClick={() => {
-                handleClick(item._id);
-              }}
-            >
-              {' '}
-              {item.name}
-            </Nav.Link>
-          </Nav.Item>
-        ))}
-      </Nav>
+    <div className="row">
+      <div className="col-12" style={{ position: 'relative', width: '100%' }}>
+        <Nav variant="tabs" defaultActiveKey="/home" style={style.sticky}>
+          {categories.map((item) => {
+            return (
+              <Nav.Item style={style.tabs} key={item._id}>
+                <Nav.Link
+                  style={style.tabs}
+                  onClick={() => {
+                    handleClick(item._id);
+                  }}
+                >
+                  {' '}
+                  {item.name}
+                </Nav.Link>
+              </Nav.Item>
+            );
+          })}
+        </Nav>
+      </div>
     </div>
   );
 }
