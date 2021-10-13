@@ -25,7 +25,7 @@ https://muffin-point-of-sale.herokuapp.com/
 Working Heroku deployment
 
 ## Contributing
-James Johnson - [JamesJ995](https://github.com/JamesJ995) 
-Robby Hare - [Hare-Ball](https://github.com/Hare-Ball) 
-Jeremy Williams - [wijeremy](https://github.com/wijeremy) 
-Javier Vilchis - [javivilchis](https://github.com/javivilchis5) 
+- James Johnson - [JamesJ995](https://github.com/JamesJ995) 
+- Robby Hare - [Hare-Ball](https://github.com/Hare-Ball) 
+- Jeremy Williams - [wijeremy](https://github.com/wijeremy) 
+- Javier Vilchis - [javivilchis](https://github.com/javivilchis5) 
