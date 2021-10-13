@@ -44,6 +44,7 @@ function ProductItem(item) {
       marginTop: 0,
       border: 'solid',
       borderStyle: 'striped',
+      margin: "1px"
     },
   };
 
