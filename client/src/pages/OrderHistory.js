@@ -57,7 +57,7 @@ function OrderHistory() {
                           <img alt={name} src={`/images/${image}`} />
                           <p>{name}</p>
                           <div>
-                            <span>${price}</span>
+                            <span>${parseFloat(price).toFixed(2)}</span>
                           </div>
                         </div>
                       )
