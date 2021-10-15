@@ -18,7 +18,10 @@ function Login(props) {
     event.preventDefault();
     try {
       const mutationResponse = await login({
-        variables: { employeeID: formState.employeeID, password: formState.password },
+        variables: {
+          employeeID: formState.employeeID,
+          password: formState.password,
+        },
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
@@ -36,53 +39,58 @@ function Login(props) {
   };
 
   return (
-    <div style={{backgroundColor: "burlywood"}}>
-    <Container style={{position: "relative"}}>
-      <Row>
-        <Col className="col py-5 md-offset-4" >
-          <Card className="col-12 col-md-6 mx-auto" style={{marginTop: "145px", marginBottom: "405px"}}>
-            <Card.Body>
-              <h2>MuffinPOS</h2>
-
-              <Form onSubmit={handleFormSubmit} className="w-100">
-                <Form.Group className="mb-3">
-                  <Form.Label>Employee ID #</Form.Label>
-                  <Form.Control
-                    type="employeeID"
-                    className="form-control"
-                    placeholder="Enter ID"
-                    name="employeeID"
-                    id="employeeID"
-                    onChange={handleChange}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    className="form-control"
-                    placeholder="Enter Password"
-                    name="password"
-                    type="password"
-                    id="pwd"
-                    onChange={handleChange}
-                  />
-                </Form.Group>
-                {error ? (
-                  <div>
-                    <p className="error-text">
-                      The provided credentials are incorrect
-                    </p>
-                  </div>
-                ) : null}
-                <Button variant="primary" type="submit">
-                  Submit
-                </Button>{' '}
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <div style={{ backgroundColor: 'burlywood' }}>
+      <Container style={{ position: 'relative' }}>
+        <Row>
+          <Col className="col py-5 md-offset-4">
+            <Card
+              className="col-12 col-md-6 mx-auto"
+              style={{ marginTop: '145px', marginBottom: '405px' }}
+            >
+              <Card.Body>
+                <img src="/images/muffin.svg" width="80vh" height="80vh"></img>
+                <br />
+                <span className="logo" style={{fontSize: "45px"}}>Muffin</span>
+                <br />
+                <Form onSubmit={handleFormSubmit} className="w-100">
+                  <Form.Group className="mb-3">
+                    <Form.Label>Employee ID #</Form.Label>
+                    <Form.Control
+                      type="employeeID"
+                      className="form-control"
+                      placeholder="Enter ID"
+                      name="employeeID"
+                      id="employeeID"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      className="form-control"
+                      placeholder="Enter Password"
+                      name="password"
+                      type="password"
+                      id="pwd"
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                  {error ? (
+                    <div>
+                      <p className="error-text">
+                        The provided credentials are incorrect
+                      </p>
+                    </div>
+                  ) : null}
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>{' '}
+                </Form>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
