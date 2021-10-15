@@ -129,7 +129,7 @@ db.once('open', async () => {
       name: 'Poppy Seed Muffin',
       description:
         'Butter, Flour, Egg, Milk, Orange Flavor, Poppy Seeds, Lemon Flavor, Sugar',
-      image: 'Pumpkin-muffin.jpg',
+      image: 'poppy-seed-muffin.jpg',
       category: categories[3]._id,
       price: 2.99,
       quantity: 500,
