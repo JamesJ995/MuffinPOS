@@ -42,14 +42,15 @@ function ProductItem(item) {
     },
     productCard: {
       marginTop: 0,
-      border: 'solid',
+      xborder: 'solid',
       borderStyle: 'striped',
-      margin: "1px"
+      width: '100%'
     },
   };
 
   return (
-    <Card className="col-3" style={style.productCard}>
+    <div className="col-3 p-2 mb-1">
+    <Card style={style.productCard} className="shadow">
       <Card.Body>
         {name}
         <Card.Img
@@ -76,6 +77,7 @@ function ProductItem(item) {
         </button>
       </Card.Body>
     </Card>
+    </div>
   );
 }
 

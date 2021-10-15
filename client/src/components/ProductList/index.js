@@ -65,6 +65,7 @@ function ProductList() {
             <div className="col-12 my-2">
               <div style={{ position: 'relative', width: '100%' }}>
                 <CategoryMenu />
+
               </div>
 
               <div className="my-2">
