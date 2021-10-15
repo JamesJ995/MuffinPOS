@@ -7,8 +7,6 @@ import { Redirect } from 'react-router-dom';
 import MainNav from '../components/MainNav';
 import Cheugy from '../components/Cheugy';
 
-
-
 function OrderHistory() {
   const { data } = useQuery(QUERY_USER);
   let user;
@@ -16,30 +14,34 @@ function OrderHistory() {
   if (data) {
     user = data.user;
   }
-const styles = {
-  buttonStyle : {
-    marginTop: "5rem",
-    
-  }
-}
+  const styles = {
+    buttonStyle: {
+      marginTop: '5rem',
+    },
+  };
   if (Auth.loggedIn()) {
     return (
-    
-        <div className="row d-flex p-0 m-0">
+      <div className="row d-flex p-0 m-0">
         <div className="col-12 col-md-3 p-0 bg-light vh-100">
           <Cheugy />
         </div>
         <div className="col-12 col-md-9 p-0 ">
           <MainNav />
           <div class="p-2">
-          <Link style={styles.buttonStyle} className="pl-5 btn btn-warning ml-4 text-center" to="/">← Back to Products</Link>
+            <Link
+              style={styles.buttonStyle}
+              className="pl-5 btn btn-warning ml-4 text-center"
+              to="/"
+            >
+              ← Back to Products
+            </Link>
           </div>
           {user ? (
             <>
-            <div class="p-2">
-              <h2>
-                Order History for {user.firstName} {user.lastName}
-              </h2>
+              <div class="p-2">
+                <h2>
+                  Order History for {user.firstName} {user.lastName}
+                </h2>
               </div>
               {user.orders.map((order) => (
                 <div key={order._id} className="my-2">
@@ -52,10 +54,8 @@ const styles = {
                     {order.products.map(
                       ({ _id, image, name, price }, index) => (
                         <div key={index} className="card px-1 py-1 shadow ">
-                          
-                            <img alt={name} src={`/images/${image}`} />
-                            <p>{name}</p>
-                         
+                          <img alt={name} src={`/images/${image}`} />
+                          <p>{name}</p>
                           <div>
                             <span>${price}</span>
                           </div>
@@ -68,8 +68,7 @@ const styles = {
             </>
           ) : null}
         </div>
-        </div>
-     
+      </div>
     );
   } else {
     return <Redirect to="/login" />;

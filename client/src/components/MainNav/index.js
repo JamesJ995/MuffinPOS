@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import metadata from './../../metadata.json';
 import DateTime from './../Date';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER } from '../../utils/queries';
 
 const style = {
   sticky: {
@@ -21,17 +23,27 @@ const style = {
 };
 
 function MainNav() {
+  const { data } = useQuery(QUERY_USER);
+  let user;
+
+  if (data) {
+    user = data.user;
+  }
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        
         <Nav className="me-auto align-items-end">
-          <Nav.Link href="/orderHistory">Order History</Nav.Link>
+          <Nav.Link href="/orderHistory">{user && (
+            <span>
+              {user.firstName + "'s"}
+            </span>
+          )} Order History </Nav.Link>
           <Nav.Link href="/" onClick={() => Auth.logout()}>
             Logout
           </Nav.Link>
           <Nav.Link disabled>
-          <DateTime />
+            <DateTime />
           </Nav.Link>
         </Nav>
       );
