@@ -44,10 +44,14 @@ function CategoryMenu() {
   const width = 100 / categories.length;
   const style = {
     tabs: {
+      width: `${width}%`,
+    },
+    tabText: {
+      width: '100%',
+      textAlign: 'center',
       background: '#f4f4f4',
       fontSize: '2rem',
       color: '#ffc107',
-      width: `${width}%`,
     },
     sticky: {
       top: '3.7em',
@@ -68,7 +72,7 @@ function CategoryMenu() {
             return (
               <Nav.Item style={style.tabs} key={item._id}>
                 <Nav.Link
-                  style={style.tabs}
+                  style={style.tabText}
                   onClick={() => {
                     handleClick(item._id);
                   }}
