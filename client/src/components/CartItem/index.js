@@ -75,7 +75,7 @@ const CartItem = ({ item }) => {
 
   return (
     <div className="p-0 m-0">
-      <li className="list-group-item d-flex justify-content-between py-2">
+      <li className="list-group-item d-flex justify-content-between p-2 mb-1 shadow">
         <div className="btn-group-vertical" role="group">
           <button
             type="button"
