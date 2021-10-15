@@ -40,7 +40,7 @@ function OrderHistory() {
                             <p>{name}</p>
                           </Link>
                           <div>
-                            <span>${price}</span>
+                            <span>${parseFloat(price).toFixed(2)}</span>
                           </div>
                         </div>
                       )
