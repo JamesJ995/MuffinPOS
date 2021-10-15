@@ -106,14 +106,14 @@ const CartItem = ({ item }) => {
         </div>
         </div>
         <span className="text-muted d-none">$12</span>
-        <span
+        <button
           className="bg-danger p-3 text-white"
           role="img"
           aria-label="trash"
           onClick={() => removeFromCart(item)}
         >
           X
-        </span>
+        </button>
       </li>
     </div>
   );

@@ -6,7 +6,7 @@ import Auth from '../utils/auth';
 import { Redirect } from 'react-router-dom';
 
 const Home = () => {
-  if (true || Auth.loggedIn()) {
+  if (Auth.loggedIn()) {
     return (
       <div>
         {/* <CategoryMenu /> */}

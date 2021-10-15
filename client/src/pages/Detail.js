@@ -127,7 +127,8 @@ function Detail() {
 
                 <p>{currentProduct.description}</p>
                 <p>
-                  <strong>Price:</strong>${currentProduct.price}{' '}
+                  <strong>Price:</strong>$
+                  {parseFloat(currentProduct.price).toFixed(2)}{' '}
                 </p>
                 <p>
                   <button className="btn btn-success" onClick={addToCart}>
